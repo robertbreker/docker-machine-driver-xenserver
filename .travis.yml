@@ -1,7 +1,21 @@
 language: go
 sudo: false
 go:
-  - release
+- release
 script:
-  - make
-  - gofmtresult=$(gofmt -s -l .); if [[ -n $gofmtresult ]]; then echo -e "Please run \"gofmt -s -w .\" before committing for the below:\n$gofmtresult"; false; fi
+- make
+- gofmtresult=$(gofmt -s -l .); if [[ -n $gofmtresult ]]; then echo -e "Please run
+  \"gofmt -s -w .\" before committing for the below:\n$gofmtresult"; false; fi
+before_deploy:
+- make release
+deploy:
+  provider: releases
+  api_key:
+    secure: hc8S/bdB0ywaPlDjd9hrYPViyCLmd1Mq7QM9dBzq/Bs4TAfLhkREvKNevrohEsVvakqVFBU3VK6fH5XiFejNvPC8Yx867h9CpcGWiqDw7zCnRGui0usS9Dd2oOMP7ekYqK650BMeWL5IZq36xQAzTf8l/Rv0CBaja0vT9vtZUVAv86IfDHid2OYzIK69Tym9qoToLHbfVecFo5AexramIVg7+A5dGR1htbdzzUld62eBoItYXr9P1GfOXQpLRfmOYNrwI9E2lMcyrDcsAsLVohDtxiTUaMrkPo2xY1M0FHkDoV7yLW399J9ANe+vCse1Gomj9D8Z+12Hme3lBlDmkM7ADqDsg7ZHWkzSjYvgKpdAHgMZLuKmFn6bl8UilNM6s++smf2G2eeV6oJwy7vBhJW2aL874DCPz1ixjaKi85NDVZ0Gmjp2VOPFkcpaxa3nRuJTd4eAnQ/QKpHrfzbs4nAW03WfFvPxCVL016tELgCdffGAYf8DWS1dhukk2KuRsBWaj20PreIslVLsydmKCN0j1TgG8ewQi+hviPDgUP0qJHD5Q66lYHJFKkPk5+0WItoFMeweQ25Eg55nbbueNpiBLMWWU7jbVH+B3NbMVIyZofL2VyJl2bMvkoYfIJe9HJWZ18TxcmKPOMmQqi1N8+XyISPOBiop4QowFnHsSOQ=
+  file:
+  - docker-machine-driver-xenserver_darwin-386
+  - docker-machine-driver-xenserver_darwin-amd64
+  - docker-machine-driver-xenserver_linux-386
+  - docker-machine-driver-xenserver_linux-amd64
+  on:
+    repo: xenserver/docker-machine-driver-xenserver
