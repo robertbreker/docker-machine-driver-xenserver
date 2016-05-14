@@ -19,3 +19,4 @@ deploy:
   - docker-machine-driver-xenserver_linux-amd64
   on:
     repo: robertbreker/docker-machine-driver-xenserver
+    tags: true
