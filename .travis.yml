@@ -1,7 +1,7 @@
 language: go
 sudo: false
 go:
-- release
+- tip
 script:
 - make
 - gofmtresult=$(gofmt -s -l .); if [[ -n $gofmtresult ]]; then echo -e "Please run
