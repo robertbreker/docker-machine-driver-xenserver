@@ -12,6 +12,7 @@ deploy:
   provider: releases
   api_key:
     secure: hUhY3ZB2/eHHi4ah8DlX5C5s3OTlHFc7FmHGuZJveMHfaiqfnhaIwR0AOVLcL1iLWr+7um/Fm/qXwSJtPOlvCgTC6/Q/qxEqUWsD9rQje9NTjGBbGSxe47pwsNCdDVmusrp0xIcBZ1c22SmIBX6tfbDmoaPvLT6oT24BdDWsh/WiGVYuuVSbgmfKXddghA/fK28ksk46dnvKkbX4YtjGT+rRe9Z4cOx81xFuhEcW9bODntIMEIwCWX2jMIyciJwyZfVhGnNrbbLmPeqKhe+/KvxZsAD3oD2eh+te4Pd1UTtBtUlbaqQfhkOKDm9syn+TAaDrUqAIQ6B3qIyxnZmYsg9V4ASt/ha7skG3i/CTDsNv2Cz8KZV0/DuHCtfoMSt7F6rSclxtiOMo3W1kWLXiurA15zunpzr2J/KxJO1ULxAaNsEMN59+30oC7Lv4hr6ZvafzPDIJsB7mpwFbx7djmTrpDYdQoVHbfNGa8HnJFuDH0bRkwSbMpQfkRmhPKnuPd030KW0Igs34Q8PAedOwm9TZ24JDv/W+jmFyrFfrFZmNga667SKXJ2rExbwPvtxJR1eP3pv1K+ckI+XPj9fxJeZCj2f4TAPIrgs6608RGjOkqTI15qP6+rKrAV/+KFUjtw7HsiSgo9k9xl06ZNKFOvIzYVGJ+GN5DWRLDAw+n/E=
+  skip_cleanup: true
   file:
   - docker-machine-driver-xenserver_darwin-386
   - docker-machine-driver-xenserver_darwin-amd64
@@ -19,3 +20,4 @@ deploy:
   - docker-machine-driver-xenserver_linux-amd64
   on:
     repo: robertbreker/docker-machine-driver-xenserver
+    tags: true
