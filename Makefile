@@ -11,7 +11,7 @@ build:
 clean:
 	if [ -f docker-machine-driver-xenserver ] ; then rm docker-machine-driver-xenserver ; fi
 	for arch in 386 amd64 ; do \
-		for os in darwin linux ; do \
+		for os in darwin linux windows ; do \
 			if [ -f docker-machine-driver-xenserver_$$os-$$arch ] ; then rm docker-machine-driver-xenserver_$$os-$$arch ; fi ; \
 		done \
 	done
@@ -20,8 +20,7 @@ clean:
 release:
 	go get ./...
 	for arch in 386 amd64 ; do \
-		for os in darwin linux ; do \
-			GOOS=$$os GOARCH=$$arch go tool dist install pkg/runtime ; \
+		for os in darwin linux windows ; do \
 			GOOS=$$os GOARCH=$$arch go build -o docker-machine-driver-xenserver_$$os-$$arch ; \
 		done \
 	done
