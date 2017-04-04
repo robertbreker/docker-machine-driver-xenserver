@@ -18,6 +18,8 @@ deploy:
   - docker-machine-driver-xenserver_darwin-amd64
   - docker-machine-driver-xenserver_linux-386
   - docker-machine-driver-xenserver_linux-amd64
+  - docker-machine-driver-xenserver_windows-386
+  - docker-machine-driver-xenserver_windows-amd64
   on:
-    repo: xenserver/docker-machine-driver-xenserver
+    repo: robertbreker/docker-machine-driver-xenserver
     tags: true
